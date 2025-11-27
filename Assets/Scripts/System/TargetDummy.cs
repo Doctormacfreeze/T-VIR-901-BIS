@@ -34,9 +34,6 @@ public class TargetDummy : MonoBehaviour
     {
         currentHealth = maxHealth;
 
-        if (dummyRenderer != null)
-            originalColor = dummyRenderer.material.color;
-
         Debug.Log($"🎯 TargetDummy initialisé: {gameObject.name}");
     }
 
