@@ -11,23 +11,27 @@ public class DisplayObjScript : MonoBehaviour
         Refresh();
     }
 
-    public void Refresh()
+   public void Refresh()
+{
+    if (currentObjectiveText == null)
+        return;
+
+    if (ObjectiveManager.Instance == null)
     {
-        if (ObjectiveManager.Instance == null)
-        {
-            currentObjectiveText.text = "no instance";
-            return;
-        }
-
-        int index = ObjectiveManager.Instance.CurrentObjectiveIndex;
-
-        if (index < 0 || index >= ObjectiveManager.Instance.ObjectiveRuntimeList.Count)
-        {
-            currentObjectiveText.text = "Aucun objectif";
-            return;
-        }
-
-        currentObjectiveText.text =
-            ObjectiveManager.Instance.ObjectiveRuntimeList[index].data.description;
+        currentObjectiveText.text = "no instance";
+        return;
     }
+
+    int index = ObjectiveManager.Instance.CurrentObjectiveIndex;
+    var list = ObjectiveManager.Instance.ObjectiveRuntimeList;
+
+    if (index < 0 || index >= list.Count)
+    {
+        currentObjectiveText.text = "No objective";
+        return;
+    }
+
+    currentObjectiveText.text = list[index].data.description;
+}
+
 }

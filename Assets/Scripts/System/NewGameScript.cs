@@ -5,6 +5,8 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class NewGameScript : MonoBehaviour
 {
 
+    public DisplayObjScript displayObj;
+
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
@@ -20,5 +22,6 @@ public class NewGameScript : MonoBehaviour
         GameManager.Instance.StartGame();
         SceneManager.LoadScene("mainscene");
         SceneManager.UnloadScene("lobby");
+        displayObj.Refresh();
     }
 }
