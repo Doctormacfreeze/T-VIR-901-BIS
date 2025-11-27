@@ -1,4 +1,4 @@
-using UnityEngine;
+Ôªøusing UnityEngine;
 using System;
 
 public class TargetDummy : MonoBehaviour
@@ -18,33 +18,32 @@ public class TargetDummy : MonoBehaviour
     [Header("Effects")]
     public ParticleSystem hitEffect;
     public AudioClip hitSound;
-    public AudioClip headshotSound; // Son spÈcial pour headshot
+    public AudioClip headshotSound; // Son sp√©cial pour headshot
     public Renderer dummyRenderer;
     public Color hitColor = Color.red;
-    public Color headshotColor = Color.yellow; // Couleur spÈciale pour headshot
+    public Color headshotColor = Color.yellow; // Couleur sp√©ciale pour headshot
     private Color originalColor;
 
     [Header("Animation")]
     public Animator dummyAnimator;
 
-    // …vÈnement quand le dummy meurt
+    // √âv√©nement quand le dummy meurt
     public event Action<TargetDummy> OnDummyDied;
 
     private void Start()
     {
         currentHealth = maxHealth;
 
-        if (dummyRenderer != null)
-            originalColor = dummyRenderer.material.color;
+        Debug.Log($"üéØ TargetDummy initialis√©: {gameObject.name}");
     }
 
-    // MÈthode modifiÈe pour prendre en compte la zone touchÈe
+    // M√©thode modifi√©e pour prendre en compte la zone touch√©e
     public void OnShot(Vector3 hitPoint, Vector3 hitNormal, Collider hitCollider)
     {
         int damage = GetDamageFromCollider(hitCollider);
         string zoneName = GetZoneName(hitCollider);
 
-        Debug.Log($"Dummy touchÈ ({zoneName})! DÈg‚ts: {damage}, Vie restante: {currentHealth}");
+        Debug.Log($"üéØ Dummy touch√© ({zoneName})! D√©g√¢ts: {damage}, Vie restante: {currentHealth}");
 
         TakeDamage(damage, zoneName);
         PlayHitEffects(hitPoint, hitNormal, zoneName);
@@ -64,7 +63,7 @@ public class TargetDummy : MonoBehaviour
 
     private string GetZoneName(Collider hitCollider)
     {
-        if (hitCollider == headCollider) return "T TE";
+        if (hitCollider == headCollider) return "T√äTE";
         return "CORPS";
     }
 
@@ -73,8 +72,8 @@ public class TargetDummy : MonoBehaviour
         currentHealth -= damage;
         currentHealth = Mathf.Max(0, currentHealth);
 
-        // Feedback spÈcial pour headshot
-        if (zoneName == "T TE")
+        // Feedback sp√©cial pour headshot
+        if (zoneName == "T√äTE")
         {
             ShowHeadshotFeedback();
         }
@@ -91,22 +90,36 @@ public class TargetDummy : MonoBehaviour
 
     private void PlayHitEffects(Vector3 position, Vector3 normal, string zoneName)
     {
-        // Effet de particules
+        // EFFET DE PARTICULES - CODE AM√âLIOR√â
         if (hitEffect != null)
         {
+            // Arr√™ter et nettoyer avant de rejouer (important !)
+            hitEffect.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+
+            // Repositionner
             hitEffect.transform.position = position;
             hitEffect.transform.rotation = Quaternion.LookRotation(normal);
+
+            // Rejouer l'effet
             hitEffect.Play();
+
+            Debug.Log($"üí• Particle System jou√© √†: {position}");
+        }
+        else
+        {
+            Debug.LogWarning("‚ö†Ô∏è Hit Effect Particle System non assign√©!");
         }
 
-        // Son spÈcial pour headshot
-        if (zoneName == "T TE" && headshotSound != null)
+        // Son sp√©cial pour headshot
+        if (zoneName == "T√äTE" && headshotSound != null)
         {
             AudioSource.PlayClipAtPoint(headshotSound, position);
+            Debug.Log($"üîä Headshot son jou√©");
         }
         else if (hitSound != null)
         {
             AudioSource.PlayClipAtPoint(hitSound, position);
+            Debug.Log($"üîä Hit son jou√©");
         }
     }
 
@@ -124,10 +137,10 @@ public class TargetDummy : MonoBehaviour
         if (dummyRenderer != null)
         {
             dummyRenderer.material.color = headshotColor;
-            Invoke(nameof(ResetColor), 0.3f); // DurÈe un peu plus longue pour headshot
+            Invoke(nameof(ResetColor), 0.3f); // Dur√©e un peu plus longue pour headshot
         }
 
-        Debug.Log("HEADSHOT !");
+        Debug.Log("üéØ HEADSHOT !");
     }
 
     private void ResetColor()
@@ -138,31 +151,31 @@ public class TargetDummy : MonoBehaviour
 
     private void OnDestroyed(string zoneName)
     {
-        string deathMessage = zoneName == "T TE" ? "HEADSHOT ! Dummy dÈtruit !" : "Dummy dÈtruit !";
+        string deathMessage = zoneName == "T√äTE" ? "üéØ HEADSHOT ! Dummy d√©truit !" : "üíÄ Dummy d√©truit !";
         Debug.Log(deathMessage);
 
         if (dummyAnimator != null)
             dummyAnimator.SetTrigger("Destroy");
 
-        // DÈsactiver les composants
+        // D√©sactiver les composants
         if (dummyRenderer != null) dummyRenderer.enabled = false;
         DisableAllColliders();
 
-        // Appeler l'ÈvÈnement de mort
+        // Appeler l'√©v√©nement de mort
         OnDummyDied?.Invoke(this);
 
-        // DÈtruire l'objet aprËs un dÈlai
+        // D√©truire l'objet apr√®s un d√©lai
         Destroy(gameObject, 2f);
     }
 
     private void DisableAllColliders()
     {
-        // DÈsactiver tous les colliders
+        // D√©sactiver tous les colliders
         if (headCollider != null) headCollider.enabled = false;
         if (bodyCollider != null) bodyCollider.enabled = false;
     }
 
-    // Pour rÈinitialiser le dummy
+    // Pour r√©initialiser le dummy
     public void Respawn()
     {
         currentHealth = maxHealth;
@@ -177,12 +190,33 @@ public class TargetDummy : MonoBehaviour
 
         if (dummyAnimator != null)
             dummyAnimator.SetTrigger("Respawn");
+
+        Debug.Log("üîÑ TargetDummy respawn!");
     }
 
     private void EnableAllColliders()
     {
-        // RÈactiver tous les colliders
+        // R√©activer tous les colliders
         if (headCollider != null) headCollider.enabled = true;
         if (bodyCollider != null) bodyCollider.enabled = true;
+    }
+
+    // M√©thode de debug pour v√©rifier l'√©tat du Particle System
+    [ContextMenu("Debug Particle System")]
+    public void DebugParticleSystem()
+    {
+        if (hitEffect != null)
+        {
+            Debug.Log($"=== DEBUG PARTICLE SYSTEM ===");
+            Debug.Log($"IsPlaying: {hitEffect.isPlaying}");
+            Debug.Log($"IsAlive: {hitEffect.IsAlive()}");
+            Debug.Log($"Particle Count: {hitEffect.particleCount}");
+            Debug.Log($"Time: {hitEffect.time}");
+            Debug.Log($"Position: {hitEffect.transform.position}");
+        }
+        else
+        {
+            Debug.LogWarning("Particle System non assign√©!");
+        }
     }
 }
