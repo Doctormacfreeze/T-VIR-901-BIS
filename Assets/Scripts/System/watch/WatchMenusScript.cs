@@ -123,7 +123,7 @@ private Rigidbody rb;
 
             transform.SetParent(watchSlot);
             transform.localPosition = new Vector3(0f,-0.7f,0f);
-            transform.localRotation = Quaternion.identity;
+            transform.localRotation = Quaternion.Euler(0f, 180f, 0f);
 
             grab.enabled =  false;
         }
