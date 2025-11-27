@@ -35,6 +35,7 @@ public class ObjectiveManager : MonoBehaviour
 			CurrentObjectiveIndex ++;
 			var CurrentObjective = ObjectiveRuntimeList[CurrentObjectiveIndex];
 			Debug.Log("nouvel objectif : " + CurrentObjective.title);
+			FindAnyObjectByType<DisplayObjScript>()?.Refresh();
 	}else {
 		Debug.Log("Plus aucun objectif");
 	}
