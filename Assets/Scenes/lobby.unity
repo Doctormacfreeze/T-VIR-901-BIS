@@ -4529,6 +4529,11 @@ MonoBehaviour:
   ObjectiveAssetsList:
   - {fileID: 11400000, guid: 5b1bce1c06bfcca4b9035c59da397711, type: 2}
   - {fileID: 11400000, guid: b21648e9f0ba5b94f80e46eb0a183790, type: 2}
+  - {fileID: 11400000, guid: db09d7e735ab8de4782b0d48cf94702e, type: 2}
+  - {fileID: 11400000, guid: a427b1820cef4a2468c94560475e5f7f, type: 2}
+  - {fileID: 11400000, guid: 1f8b89da0d1c0b04fb06f08aacd61ce4, type: 2}
+  - {fileID: 11400000, guid: d8a03b7cebcedfe4c923d0c5733b8425, type: 2}
+  - {fileID: 11400000, guid: 9884b15ab7d5c414d86d9e631a5c8e94, type: 2}
   ObjectiveRuntimeList: []
   CurrentObjectiveIndex: -1
 --- !u!114 &1729982856

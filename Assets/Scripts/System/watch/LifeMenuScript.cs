@@ -8,6 +8,6 @@ public class LifeMenuScript : MonoBehaviour
 
     
     void OnEnable(){
-        lifeText.text = "ma vie ma vie ma vie";
+        lifeText.text = "Vie pleine";
     }
 }

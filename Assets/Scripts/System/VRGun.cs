@@ -76,6 +76,10 @@ public class XRGun : MonoBehaviour
         if (nearbyMagazine != null && IsMagazineCloseEnough(nearbyMagazine.transform))
         {
             Reload();
+            if(canchangeObj2 == false){
+            canchangeObj2 = true;
+            ObjectiveManager.Instance.CurrentObjectiveCompleted();
+        }
         }
     }
 
@@ -132,10 +136,7 @@ public class XRGun : MonoBehaviour
         {
             // ✅ UTILISER L'AUDIOSOURCE EXISTANT
             PlayEmptySound();
-            if(canchangeObj2 == false){
-            canchangeObj2 = true;
-            ObjectiveManager.Instance.CurrentObjectiveCompleted();
-        }
+
             return;
         }
 

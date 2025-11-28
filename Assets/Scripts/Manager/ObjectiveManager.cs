@@ -5,6 +5,7 @@ public class ObjectiveManager : MonoBehaviour
 {
 
 	public static ObjectiveManager Instance;
+	private WatchMenusScript watch;
 
     public List<ObjectiveData> ObjectiveAssetsList = new List<ObjectiveData>();
 
@@ -45,5 +46,6 @@ public class ObjectiveManager : MonoBehaviour
 	public void CurrentObjectiveCompleted(){
 		ObjectiveRuntimeList[CurrentObjectiveIndex].isCompleted = true;
 		StartNextObjective();
+		watch.reset();
 	}
 }

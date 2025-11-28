@@ -34,6 +34,11 @@ private bool canChangeObj = false;
         
     }
 
+    public void reset(){
+        menus[currentIndex].SetActive(false);
+        menus[currentIndex].SetActive(true);
+    }
+
     void OnEnable()
     {
         if (grab != null)
