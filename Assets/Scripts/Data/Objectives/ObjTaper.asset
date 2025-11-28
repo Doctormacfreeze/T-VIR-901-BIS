@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: ObjTaper
   m_EditorClassIdentifier: 
   title: Frappe le mannequin
-  description: Utilise ta matraque pour frapper le mannequin, pour accomplir l'objectif
-    tu dois toucher 5 fois ta cible.
+  description: Utilise ta matraque pour frapper le mannequin 5 fois.

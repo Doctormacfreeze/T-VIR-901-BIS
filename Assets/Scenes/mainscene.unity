@@ -14428,7 +14428,6 @@ GameObject:
   - component: {fileID: 1618301744}
   - component: {fileID: 1618301743}
   - component: {fileID: 1618301742}
-  - component: {fileID: 1618301741}
   - component: {fileID: 1618301747}
   m_Layer: 0
   m_Name: Watch
@@ -14453,18 +14452,6 @@ Transform:
   - {fileID: 475397076}
   m_Father: {fileID: 1457048475}
   m_LocalEulerAnglesHint: {x: -1.52, y: 214.418, z: -56.691}
---- !u!114 &1618301741
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1618301739}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e41822b43fbd2546b21dcdadc3b922b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1618301742
 MonoBehaviour:
   m_ObjectHideFlags: 0

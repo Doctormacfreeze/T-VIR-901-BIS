@@ -26,6 +26,8 @@ public class ObjectiveManager : MonoBehaviour
 		foreach( var data in ObjectiveAssetsList){
 			ObjectiveRuntimeList.Add(new Objective { data = data });
 		}
+		CurrentObjectiveIndex++;
+		
 	}
 
 	public void StartNextObjective(){
@@ -35,7 +37,6 @@ public class ObjectiveManager : MonoBehaviour
 			CurrentObjectiveIndex ++;
 			var CurrentObjective = ObjectiveRuntimeList[CurrentObjectiveIndex];
 			Debug.Log("nouvel objectif : " + CurrentObjective.title);
-			FindAnyObjectByType<DisplayObjScript>()?.Refresh();
 	}else {
 		Debug.Log("Plus aucun objectif");
 	}

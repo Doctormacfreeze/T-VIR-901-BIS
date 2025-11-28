@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c6164e2dac25e94890e582713b10be7, type: 3}
-  m_Name: ObjTirer
+  m_Name: ObjFin
   m_EditorClassIdentifier: 
-  title: Tire avec le pistolet sur un ennemi
-  description: Vise un ennemi et tire dessus avec le pistolet 10 fois.
+  title: Frappe le mannequin
+  description: Bravo ! tu as fini le jeu !
