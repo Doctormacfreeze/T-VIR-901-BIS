@@ -1785,7 +1785,7 @@ MonoBehaviour:
       m_Name: Manipulation
       m_Type: 0
       m_ExpectedControlType: Vector2
-      m_Id: 38c1e5e0-1a53-4860-8b8a-ac22cbf23331
+      m_Id: ab8b138b-b820-4aa3-b42d-4b9a49910e5b
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings: []
@@ -3131,7 +3131,7 @@ MonoBehaviour:
       m_Name: Manipulation
       m_Type: 0
       m_ExpectedControlType: Vector2
-      m_Id: 9d125c9a-1a83-4601-b805-6945dfc3eca9
+      m_Id: 0a5ab345-650f-4fc2-be94-408b3c170427
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings: []
