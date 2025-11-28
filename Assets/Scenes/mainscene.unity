@@ -1263,7 +1263,6 @@ Transform:
   - {fileID: 633653350}
   - {fileID: 237113946}
   - {fileID: 1493071487}
-  - {fileID: 940586919}
   - {fileID: 247821381}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4842,6 +4841,10 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 645089544483810993, guid: ba0d9d98459020c45810bf1e207e3adc, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: f4fb8c083a36ec44294f9eabd63bd1f1, type: 2}
     - target: {fileID: 2501590925034109643, guid: ba0d9d98459020c45810bf1e207e3adc, type: 3}
       propertyPath: m_Name
       value: HumanCharacterDummy_F@Zombie Idle 1
@@ -12816,3 +12819,4 @@ SceneRoots:
   - {fileID: 484915898}
   - {fileID: 224147548}
   - {fileID: 844563777}
+  - {fileID: 1336288855}
