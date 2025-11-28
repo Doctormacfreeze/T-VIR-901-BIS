@@ -14,7 +14,8 @@ public InputActionReference navigateAction;
 private bool isAttached = false;
 private UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable grab;
 private Transform watchSlot;
-private Rigidbody rb;                    
+private Rigidbody rb;  
+private bool canChangeObj = false;
 
     void Awake()
     {
@@ -31,6 +32,11 @@ private Rigidbody rb;
 
         menus[currentIndex].SetActive(true);
         
+    }
+
+    public void reset(){
+        menus[currentIndex].SetActive(false);
+        menus[currentIndex].SetActive(true);
     }
 
     void OnEnable()
@@ -117,6 +123,11 @@ private Rigidbody rb;
     {
         if(watchSlot){
             isAttached = true;
+
+            if(canChangeObj == false && isAttached == true){
+                canChangeObj = true;
+                ObjectiveManager.Instance.CurrentObjectiveCompleted();
+            }
 
             rb.isKinematic = true;
             rb.useGravity = false;

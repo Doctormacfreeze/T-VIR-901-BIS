@@ -5,6 +5,11 @@ using System.Collections;
 
 public class XRGun : MonoBehaviour
 {
+
+    private bool canchangeObj = false;
+    private bool canchangeObj2 = false;
+    private bool canchangeObj3 = false;
+    private DisplayObjScript dislayObj;
     [Header("Input Actions")]
     public InputActionReference fireAction;
 
@@ -46,10 +51,7 @@ public class XRGun : MonoBehaviour
             laserLine.enabled = false;
     }
 
-    private void Start()
-    {
-        UpdateAmmoUI();
-    }
+
 
     private void OnEnable()
     {
@@ -74,6 +76,10 @@ public class XRGun : MonoBehaviour
         if (nearbyMagazine != null && IsMagazineCloseEnough(nearbyMagazine.transform))
         {
             Reload();
+            if(canchangeObj2 == false){
+            canchangeObj2 = true;
+            ObjectiveManager.Instance.CurrentObjectiveCompleted();
+        }
         }
     }
 
@@ -110,7 +116,13 @@ public class XRGun : MonoBehaviour
         muzzleFlash.Play();
     }
 
-    private void OnGrab(SelectEnterEventArgs args) => isHeld = true;
+    private void OnGrab(SelectEnterEventArgs args){
+        isHeld = true;
+        if(canchangeObj == false && isHeld == true){
+            canchangeObj = true;
+            ObjectiveManager.Instance.CurrentObjectiveCompleted();
+        }
+    }
     private void OnRelease(SelectExitEventArgs args) => isHeld = false;
 
     private void OnFirePerformed(InputAction.CallbackContext context)
@@ -124,6 +136,7 @@ public class XRGun : MonoBehaviour
         {
             // ✅ UTILISER L'AUDIOSOURCE EXISTANT
             PlayEmptySound();
+
             return;
         }
 
@@ -233,6 +246,9 @@ public class XRGun : MonoBehaviour
 
     private void UpdateAmmoUI()
     {
-        // Mettre à jour votre UI ici si nécessaire
+        if(canchangeObj3 == false){
+            canchangeObj3 = true;
+            ObjectiveManager.Instance.CurrentObjectiveCompleted();
+        }
     }
 }

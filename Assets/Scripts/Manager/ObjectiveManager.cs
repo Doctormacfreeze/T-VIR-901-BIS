@@ -5,13 +5,14 @@ public class ObjectiveManager : MonoBehaviour
 {
 
 	public static ObjectiveManager Instance;
+	private WatchMenusScript watch;
 
     public List<ObjectiveData> ObjectiveAssetsList = new List<ObjectiveData>();
 
 	[HideInInspector]
     public List<Objective> ObjectiveRuntimeList = new List<Objective>();
 
-	public int CurrentObjectiveIndex = -1;
+	public int CurrentObjectiveIndex = 0;
 
 	void Awake(){
 
@@ -26,6 +27,8 @@ public class ObjectiveManager : MonoBehaviour
 		foreach( var data in ObjectiveAssetsList){
 			ObjectiveRuntimeList.Add(new Objective { data = data });
 		}
+		CurrentObjectiveIndex++;
+		
 	}
 
 	public void StartNextObjective(){
@@ -43,5 +46,6 @@ public class ObjectiveManager : MonoBehaviour
 	public void CurrentObjectiveCompleted(){
 		ObjectiveRuntimeList[CurrentObjectiveIndex].isCompleted = true;
 		StartNextObjective();
+		watch.reset();
 	}
 }

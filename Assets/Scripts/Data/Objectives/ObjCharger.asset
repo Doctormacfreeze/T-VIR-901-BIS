@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: ObjCharger
   m_EditorClassIdentifier: 
   title: Charger le pistolet
-  description: "Le pistolet ne contient pas de charger plein. Tu dois r\xE9cup\xE9rer
-    un chargeur et l'associer \xE0 ton pistolet."
+  description: Chargeur vide, approche le pistolet des munitions.

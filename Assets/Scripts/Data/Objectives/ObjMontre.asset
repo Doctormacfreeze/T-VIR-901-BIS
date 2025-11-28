@@ -13,6 +13,4 @@ MonoBehaviour:
   m_Name: ObjMontre
   m_EditorClassIdentifier: 
   title: "R\xE9cup\xE8re la montre"
-  description: "Ramasse la montre sur la table et attache la \xE0 ton bras. Ta montre
-    te sers \xE0 voir tes points de vies ainsi que l'objectif en cours. Utilise le
-    joystick droite pour aller d'un menu \xE0 l'autre."
+  description: Tu peux ramasser la montre.

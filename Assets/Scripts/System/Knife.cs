@@ -11,7 +11,37 @@ public class Knife : MonoBehaviour
     [Header("Effects")]
     public ParticleSystem hitEffect;
 
+    private UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable grabInteractable;
+    private bool isHeld = false;
+    private bool canchangeObj = false;
+    private bool canchangeObj2 = false;
+    private int countAttack = 0;
+
     private bool canAttack = true;
+        private void Awake() {
+          grabInteractable = GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>();
+        }
+        private void OnEnable()
+    {
+        grabInteractable.selectEntered.AddListener(OnGrab);
+        grabInteractable.selectExited.AddListener(OnRelease);
+    }
+
+    private void OnDisable()
+    {
+        grabInteractable.selectEntered.RemoveListener(OnGrab);
+        grabInteractable.selectExited.RemoveListener(OnRelease);
+
+    }
+
+    private void OnGrab(SelectEnterEventArgs args){
+        isHeld = true;
+        if(canchangeObj == false && isHeld == true){
+            canchangeObj = true;
+            ObjectiveManager.Instance.CurrentObjectiveCompleted();
+        }
+    }
+    private void OnRelease(SelectExitEventArgs args) => isHeld = false;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -56,6 +86,11 @@ public class Knife : MonoBehaviour
         KnifeDummy knifeDummy = other.GetComponentInParent<KnifeDummy>();
         if (knifeDummy != null)
         {
+            countAttack++;
+            if(countAttack == 5 && canchangeObj2 == false){
+                canchangeObj2 = true;
+                ObjectiveManager.Instance.CurrentObjectiveCompleted();
+            }
             Debug.Log($"✅ KNIFEDUMMY TROUVÉ: {knifeDummy.gameObject.name}");
 
             Vector3 hitPoint = other.ClosestPoint(transform.position);

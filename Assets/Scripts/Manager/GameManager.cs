@@ -3,7 +3,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 
-	public GameManager Instance;
+	public static GameManager Instance;
 	public GameData CurrentGame;
 	public bool isPlaying = false;
 
@@ -18,6 +18,5 @@ public class GameManager : MonoBehaviour
 	public void StartGame(){
 		isPlaying = true;
 		CurrentGame = new GameData();
-		ObjectiveManager.Instance.StartNextObjective();
 	}
 }
