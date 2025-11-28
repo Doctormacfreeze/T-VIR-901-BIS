@@ -11,7 +11,7 @@ public class ObjectiveManager : MonoBehaviour
 	[HideInInspector]
     public List<Objective> ObjectiveRuntimeList = new List<Objective>();
 
-	public int CurrentObjectiveIndex = -1;
+	public int CurrentObjectiveIndex = 0;
 
 	void Awake(){
 
