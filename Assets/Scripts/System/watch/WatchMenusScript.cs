@@ -15,7 +15,6 @@ private bool isAttached = false;
 private UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable grab;
 private Transform watchSlot;
 private Rigidbody rb;  
-private DisplayObjScript displayObj;
 private bool canChangeObj = false;
 
     void Awake()
@@ -41,7 +40,6 @@ private bool canChangeObj = false;
         {
             grab.selectEntered.AddListener(OnGrabbed);
             grab.selectExited.AddListener(OnGrabReleased);
-            displayObj.Refresh();
         }
 
         if(navigateAction != null){

@@ -5,7 +5,6 @@ public class GameManager : MonoBehaviour
 
 	public static GameManager Instance;
 	public GameData CurrentGame;
-	public DisplayObjScript displayObj;
 	public bool isPlaying = false;
 
 	void Awake(){

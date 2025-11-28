@@ -22,6 +22,5 @@ public class NewGameScript : MonoBehaviour
         GameManager.Instance.StartGame();
         SceneManager.LoadScene("mainscene");
         SceneManager.UnloadScene("lobby");
-        displayObj.Refresh();
     }
 }
