@@ -5343,6 +5343,10 @@ PrefabInstance:
       value: Trunk01
       objectReference: {fileID: 0}
     - target: {fileID: 1516765547177086, guid: a48529e3c8cffeb49b103f39d34d1f37, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1516765547177086, guid: a48529e3c8cffeb49b103f39d34d1f37, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -6210,3 +6214,5 @@ SceneRoots:
   - {fileID: 1117792153}
   - {fileID: 1729982857}
   - {fileID: 1314831824}
+  - {fileID: 265924287}
+  - {fileID: 1289328539}
